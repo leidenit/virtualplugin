@@ -1,0 +1,20 @@
+<?php
+//Add moodle config
+require "../config.php";
+require_login();
+
+//First constructions of terminal sentence
+$vbox_m_predict = "sudo /usr/bin/VBoxManage";
+$vbox_h_predict = "sudo /usr/bin/VBoxHeadless";
+
+//Main site informations
+$site_host = "localhost:8888";
+$site_tittle = "Virtual Srudents";
+$site_name = "Students VM";
+$htdocs_host = "virtual";
+$main_host = "/virtualplugin/";
+
+//Check host path
+$host_path = array_filter(explode("/", $main_host), function($value) { return $value !== ''; });
+$host_path_length = count($host_path);
+?>
