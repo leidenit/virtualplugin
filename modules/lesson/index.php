@@ -10,7 +10,7 @@ $vm_lesson_list = get_lesson_list(0, 100, $pdo);
             <div class="col-md-12">
                 <div class="card ">
                     <div class="header">
-                        <h4 class="title">Список практикумов</h4>
+                        <h4 class="title">Список виртуальных сред</h4>
                         <p class="category">Вы можете их редактировать</p>
                     </div>
                     <div class="content table-responsive table-full-width">
@@ -18,7 +18,7 @@ $vm_lesson_list = get_lesson_list(0, 100, $pdo);
                             <div class="content">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        В базе отсутствуют практикумы!
+                                        В базе отсутствуют виртуальные среды!
                                     </div>
                                 </div>
                             </div>

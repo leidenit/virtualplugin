@@ -6,6 +6,7 @@ include_once 'modules/lesson/lib/functions.php';
 //parse lesson id
 parse_str($_SERVER['QUERY_STRING']);
 $current_lesson = $item_id;
+$lesson_obj = get_lesson($current_lesson,$pdo);
 ?>
 
 <div class="content">
@@ -14,7 +15,7 @@ $current_lesson = $item_id;
             <div class="col-md-8">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Практикум <?= $current_lesson ?></h4>
+                        <h4 class="title"><?= $lesson_obj['name'] ?></h4>
                     </div>
                     <div class="content">
                         <div class="row">
@@ -35,7 +36,7 @@ $current_lesson = $item_id;
                                     }
                                     if (!is_vm($vm_name, $vbox_m_predict)) {
                                         if (!is_vm($item, $vbox_m_predict)) {
-                                            echo "Виртуальная машина-родитель <b>" . $item . "</b> отсутствует в системе!</br>";
+                                            echo "<span style='color:red'>Виртуальная машина-родитель <b>" . $item . "</b> отсутствует в системе!</br></span>";
                                         }
                                         clone_vm($item, $vm_name, $vbox_m_predict);
                                     }

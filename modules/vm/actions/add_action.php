@@ -13,7 +13,7 @@ $form_c = get_db_vm($item_id, $pdo);
             <div class="col-md-4">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Вы создали виртуальную машину</h4>
+                        <h4 class="title">Вы создали шаблон виртуальной машины</h4>
                     </div>
                     <div class="content">
                         <lable><?= $form_c["name"] ?></lable>

@@ -1,7 +1,7 @@
 <!-- Create form (part of vm page) -->
 <div class="card">
     <div class="header">
-        <h4 class="title">Создать виртуальную машину</h4>
+        <h4 class="title">Создать шаблон виртуальной машины</h4>
     </div>
     <div class="content">
         <form method="post" action="create">
@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Название виртуальной машины (virtualbox - <b>уникальное</b>) *</label>
-                        <input name="name" type="text" class="form-control" placeholder="Название урока" value=""
+                        <input name="name" type="text" class="form-control" placeholder="Название" value=""
                                required>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-info btn-fill pull-right">Создать виртуальную машину</button>
+            <button type="submit" class="btn btn-info btn-fill pull-right">Создать</button>
             <div class="clearfix"></div>
         </form>
     </div>

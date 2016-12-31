@@ -29,7 +29,10 @@ if (sizeof($tokens) == 1) {
     include_once "base/header.php";
     include "index.php";
 } else {
-    if ($tokens[2] == 'startvm') {
+    if ($tokens[2] == 'virt_lesson') {
+        include_once "base/header.php";
+        include "index_once.php";
+    } else if ($tokens[2] == 'startvm') {
         include_once "base/header.php";
         include "modules/virtualboxscript/index.php";
     } else if ($tokens[2] == 'closevm') {

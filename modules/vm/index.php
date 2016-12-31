@@ -10,7 +10,7 @@ $vm_item_list = get_vm_db_list(0, 100, $pdo);
             <div class="col-md-12">
                 <div class="card ">
                     <div class="header">
-                        <h4 class="title">Список виртуальных машин</h4>
+                        <h4 class="title">Список шаблонов виртуальных машин</h4>
                         <p class="category">Вы можете их редактировать</p>
                     </div>
                     <div class="content table-responsive table-full-width">
@@ -18,7 +18,7 @@ $vm_item_list = get_vm_db_list(0, 100, $pdo);
                             <div class="content">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        В базе отсутствуют виртуальные машины!
+                                        В базе отсутствуют шаблоны виртуальных машин!
                                     </div>
                                 </div>
                             </div>

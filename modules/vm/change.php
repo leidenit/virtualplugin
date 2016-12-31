@@ -12,7 +12,7 @@ $l_item = get_db_vm($item_id, $pdo);
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Изменить виртуальную машину</h4>
+                        <h4 class="title">Изменить шаблон виртуальной машины</h4>
                     </div>
                     <div class="content">
                         <form method="post" action="update?item_id=<?= $item_id ?>">

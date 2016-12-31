@@ -54,7 +54,7 @@
                     } ?>">
                         <a href="/virtual/administration/">
                             <i class="pe-7s-plugin"></i>
-                            <p>Администрирование</p>
+                            <p>Виртуальные среды</p>
                         </a>
                     </li>
                     <li class="<?php if ($menu_active == 4) {
@@ -62,18 +62,18 @@
                     } ?>">
                         <a href="/virtual/virtualmachines/">
                             <i class="pe-7s-monitor"></i>
-                            <p>Виртульные машины</p>
+                            <p>Шаблоны ВМ</p>
                         </a>
                     </li>
                 <?php endif; ?>
-                <li class="<?php if ($menu_active == 5) {
+                <!--<li class="<?php if ($menu_active == 5) {
                     echo active;
                 } ?>">
                     <a href="/virtual/settings/">
                         <i class="pe-7s-config"></i>
                         <p>Настройки</p>
                     </a>
-                </li>
+                </li>-->
 
                 <li class="active-pro <?php if ($menu_active == 1) {
                     echo active;
