@@ -2,17 +2,17 @@
 include_once "settings.php";
 include_once "libs/interface_lib/interface_lib.php";
 
-//Parse url
+//Разбиваем адрес на части
 $server_url = parse_url($_SERVER['REQUEST_URI']);
 $url_f = $server_url["path"];
 $tokens = array_filter(explode("/", $url_f), function ($value) {
     return $value !== '';
 });
 
-//Set default status for menu
+//Выставляем активный пункт меню
 $menu_active = 1;
 
-//Check user for admin status
+//Определяем права доступа
 $admins = get_admins();
 $isadmin = false;
 foreach ($admins as $admin) {
@@ -24,7 +24,7 @@ foreach ($admins as $admin) {
 
 include_once "modules/users/init.php";
 
-//Navigation construction
+//Логический каскад
 if (sizeof($tokens) == 1) {
     include_once "base/header.php";
     include "index.php";
