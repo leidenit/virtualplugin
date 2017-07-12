@@ -7,9 +7,9 @@ function get_lesson($item_id, $pdo)
     return $result[0];
 }
 
-function create_lesson($name, $description, $vmarray, $pdo)
+function create_lesson($name, $description, $vmarray,$urlimg,$pdo)
 {
-    $stmt = $pdo->query("INSERT INTO lab (name,description) VALUES('$name','$description')");
+    $stmt = $pdo->query("INSERT INTO lab (name,description,image) VALUES('$name','$description','$urlimg')");
     $stmt = $pdo->query("SELECT LAST_INSERT_ID()");
     $lastId = $stmt->fetch(PDO::FETCH_NUM);
     $lastId = $lastId[0];

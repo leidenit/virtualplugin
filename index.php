@@ -19,39 +19,47 @@ $curr_lesson = $lesson_list[0];
                     </div>
                     <div class="content">
                         <ul class="list-group">
-                            <?php foreach ($lesson_list as $key => $item): ?>
-                                <li class="list-group-item ls-item <?php if ($key == 0) {
-                                    echo "active active-item group";
-                                } ?>" data-id="<?= $item["id"] ?>"><?= $item["name"] ?></li>
-                            <?php endforeach; ?>
+                            <?php if($lesson_list): ?>
+                                <?php foreach ($lesson_list as $key => $item): ?>
+                                    <li class="list-group-item ls-item <?php if ($key == 0) {
+                                        echo "active active-item group";
+                                    } ?>" data-id="<?= $item["id"] ?>"><?= $item["name"] ?></li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                Для вашего пользователя нет достиупных практикумов!
+                            <?php endif ?>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="header">
-                        <h4 class="title">Описание практикума</h4>
+            <?php if($lesson_list): ?>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Описание практикума</h4>
+                        </div>
+                        <div class="content ls-descr">
+                            <?= $curr_lesson['description'] ?>
+                        </div>
                     </div>
-                    <div class="content ls-descr">
-                        <?= $curr_lesson['description'] ?>
+                </div>
+            <?php endif; ?>
+        </div>
+        <?php if($lesson_list): ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card ">
+                        <div class="header">
+                            <h4 class="title">Настройки виртуальных машин</h4>
+                        </div>
+                        <div class="content">
+                            <form lpformnum="1" _lpchecked="1" id="virt-info">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card ">
-                    <div class="header">
-                        <h4 class="title">Настройки виртуальной машины</h4>
-                    </div>
-                    <div class="content">
-                        <form lpformnum="1" _lpchecked="1" id="virt-info">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endif; ?>
     </div>
 </div>
 

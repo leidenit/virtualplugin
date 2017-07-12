@@ -10,7 +10,7 @@ $vm_lesson_list = get_lesson_list(0, 100, $pdo);
             <div class="col-md-12">
                 <div class="card ">
                     <div class="header">
-                        <h4 class="title">Список виртуальных сред</h4>
+                        <h4 class="title">Список шаблонов виртуальных сред</h4>
                         <p class="category">Вы можете их редактировать</p>
                     </div>
                     <div class="content table-responsive table-full-width">
@@ -18,7 +18,7 @@ $vm_lesson_list = get_lesson_list(0, 100, $pdo);
                             <div class="content">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        В базе отсутствуют виртуальные среды!
+                                        В базе отсутствуют шаблоны виртуальные среды!
                                     </div>
                                 </div>
                             </div>
@@ -28,6 +28,7 @@ $vm_lesson_list = get_lesson_list(0, 100, $pdo);
                                     <tr>
                                         <th>№</th>
                                         <th>Название</th>
+                                        <th>Ссылка</th>
                                         <th colspan="2">Операции</th>
                                     </tr>
                                 </thead>
@@ -36,9 +37,10 @@ $vm_lesson_list = get_lesson_list(0, 100, $pdo);
                                     <tr>
                                         <td><?= $key + 1 ?></td>
                                         <td><?= $lesson['name'] ?></td>
+                                        <td>/virtual/virt_lesson?lesson_id=<?= $lesson['id'] ?></td>
                                         <td>
                                             <a href="/virtual/administration/change/?item_id=<?= $lesson['id'] ?>">
-                                                <i class="pe-7s-tools"></i> Редактировать
+                                                <i class="pe-7s-tools"></i> Изменить
                                             </a>
                                         </td>
                                         <td>

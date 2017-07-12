@@ -13,7 +13,7 @@ $selected_vm = get_lesson_selected_vm($item_id, $pdo);
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Изменить виртуальную среду</h4>
+                        <h4 class="title">Изменить шаблон виртуальной среды</h4>
                     </div>
                     <div class="content">
                         <form method="post" action="update?item_id=<?= $item_id ?>">
@@ -31,9 +31,9 @@ $selected_vm = get_lesson_selected_vm($item_id, $pdo);
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Описание виртуальной среды *</label>
-                                        <textarea name="description" rows="5" class="form-control"
+                                        <textarea name="description" rows="5" class="form-control" id="main-text-edit"
                                                   placeholder="Введите описание виртуальной среды" value=""
-                                                  required><?= $l_item['name'] ?></textarea>
+                                                  required><?= $l_item['description'] ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -67,3 +67,8 @@ $selected_vm = get_lesson_selected_vm($item_id, $pdo);
         </div>
     </div>
 </div>
+
+<script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace( 'main-text-edit' );
+</script>

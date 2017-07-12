@@ -32,4 +32,13 @@ function delete_db_vm($item_id,$pdo)
 	$stmt = $pdo->query("DELETE FROM lab_vm_id WHERE vm_id = '$item_id'");
     $stmt = $pdo->query("DELETE FROM virtualprofile WHERE id = '$item_id'");
 }
+
+function delete_db_vm_by_name($item_name,$pdo)
+{
+    $stmt = $pdo->query("SELECT * FROM virtualprofile WHERE name = '$item_name'");
+    $result = $stmt->fetchAll();
+    $set_id = $result[0]["id"];
+    $stmt = $pdo->query("DELETE FROM lab_vm_id WHERE vm_id = '$set_id'");
+    $stmt = $pdo->query("DELETE FROM virtualprofile WHERE name = '$item_name'");
+}
 ?>

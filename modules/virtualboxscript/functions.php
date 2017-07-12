@@ -97,7 +97,7 @@ function poff_vm($name, $vbox_m_predict)
 
 function nat_configure($name,$site_ip, $ipnum,$vbox_m_predict)
 {
-    return shell_exec($vbox_m_predict . ' modifyvm ' . $name . ' --natpf1 "guestssh,tcp,' .$site_ip.',22' . $ipnum .',,'. $ipnum .'"');
+    return shell_exec($vbox_m_predict . ' modifyvm ' . $name . ' --natpf1 "guestssh,tcp,' .$site_ip.',22' . $ipnum .',,22"');
 }
 
 ?>

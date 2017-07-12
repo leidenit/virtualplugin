@@ -24,7 +24,7 @@ class UserClass
         if (sizeof($data) != 0) {
             $this->dbdescriptor = $data[0];
             $stmt = $this->pdo->query("UPDATE user SET ldate='$today' WHERE id='$this->vid'");
-            int_notify('Вы уже есть в базе. Ваше данные подгрузились!', 'pe-7s-check');
+
         } else {
             $stmt = $this->pdo->query("INSERT INTO user (id,firstname,lastname,fdate,ldate) VALUES('$this->vid','$this->fname','$this->lname ','$today','$today')");
             int_notify('Вас не было в базе, но система вас занесла!', 'pe-7s-hourglass');

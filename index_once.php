@@ -12,31 +12,30 @@ $curr_lesson = get_lesson($_GET['lesson_id'],$pdo);
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="content">
-                        <ul class="list-group">
-                            <?=$curr_lesson['name']?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="card">
                     <div class="header">
-                        <h4 class="title">Описание виртуальной среды</h4>
+                        <span class="title" style="color: darkgrey;">Название</span>
                     </div>
-                    <div class="content ls-descr">
+                    <div class="content" style="font-size: 20px; margin-top: -10px;">
+                            <?=$curr_lesson['name']?>
+                    </div>
+                    <div class="header">
+                        <span class="title" style="color: darkgrey;">Картинка</span>
+                    </div>
+                    <div class="content" style="font-size: 20px; margin-top: -10px; text-align: center;">
+                        <img src="<?=$curr_lesson['image']?>">
+                    </div>
+
+                    <div class="header">
+                        <span class="title" style="color: darkgrey;">Описание</span>
+                    </div>
+                    <div class="content ls-descr" style="margin-top: -10px;">
                         <?= $curr_lesson['description'] ?>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card ">
+
                     <div class="header">
-                        <h4 class="title">Настройки виртуальных машин</h4>
+                        <span class="title" style="color: darkgrey;">Виртуальные машины</span>
                     </div>
-                    <div class="content">
+                    <div class="content" style="margin-top: -10px;">
                         <form lpformnum="1" _lpchecked="1" id="virt-info">
                         </form>
                     </div>

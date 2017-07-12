@@ -2,17 +2,17 @@
 include_once "settings.php";
 include_once "libs/interface_lib/interface_lib.php";
 
-//Разбиваем адрес на части
+//Parse url
 $server_url = parse_url($_SERVER['REQUEST_URI']);
 $url_f = $server_url["path"];
 $tokens = array_filter(explode("/", $url_f), function ($value) {
     return $value !== '';
 });
 
-//Выставляем активный пункт меню
+//Set default status for menu
 $menu_active = 1;
 
-//Определяем права доступа
+//Check user for admin status
 $admins = get_admins();
 $isadmin = false;
 foreach ($admins as $admin) {
@@ -24,10 +24,17 @@ foreach ($admins as $admin) {
 
 include_once "modules/users/init.php";
 
-//Логический каскад
+//Navigation construction
 if (sizeof($tokens) == 1) {
-    include_once "base/header.php";
-    include "index.php";
+    if($isadmin)
+    {
+        include_once "base/header.php";
+        include "index_admin.php";
+    }
+    else {
+        include_once "base/header.php";
+        include "index.php";
+    }
 } else {
     if ($tokens[2] == 'virt_lesson') {
         include_once "base/header.php";
@@ -35,7 +42,28 @@ if (sizeof($tokens) == 1) {
     } else if ($tokens[2] == 'startvm') {
         include_once "base/header.php";
         include "modules/virtualboxscript/index.php";
-    } else if ($tokens[2] == 'closevm') {
+    } else if ($tokens[2] == 'backup') {
+        if ($isadmin) {
+            $menu_active = 10;
+            if (sizeof($tokens) == 2) {
+                include_once "base/header.php";
+                include "libs/db/backup/index.php";
+            } else if ($tokens[3] == 'db_dump') {
+                include "libs/db/backup/signals/create_dump.php";
+            } else if ($tokens[3] == 'db_upload') {
+                include_once "base/header.php";
+                include "libs/db/backup/signals/upload_dump.php";
+            } else if ($tokens[3] == 'create_archive') {
+                include "libs/db/backup/signals/create_archive.php";
+            } else if ($tokens[3] == 'create_full_archive') {
+                include "libs/db/backup/signals/create_full_archive.php";
+            }
+        }
+        else {
+            include "static/error.php";
+        }
+    }
+    else if ($tokens[2] == 'closevm') {
         include "actions/close_vm.php";
     } else if ($tokens[2] == 'descr') {
         include "actions/get_des.php";

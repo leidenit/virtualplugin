@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Параметры системы</label>
+                        <label>Параметры виртуальной машины</label>
                         <input name="property" type="text" class="form-control"
                                placeholder="Паваметры виртуальной машины" value="">
                     </div>

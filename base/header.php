@@ -26,20 +26,22 @@
 <div class="wrapper">
     <div class="sidebar" data-image="<?=$main_host?>assets/img/sidebar-4.jpg">
         <div class="sidebar-wrapper">
-            <div class="logo" style="padding:5px 10px 5px 35px;">
-                <a href="/<?=$htdocs_host?>" class="simple-text">
-                    <img src="<?=$main_host?>assets/img/logo.png" style="width:160px;">
+            <div class="logo" style="padding:0px; font-size:13px; ">
+                <a href="/<?=$htdocs_host?>/" class="simple-text" style="font-size:17px;">
+                  <img src="<?=$main_host?>assets/img/logo.png" width="90%">
                 </a>
             </div>
             <ul class="nav">
+                <?php if (!$isadmin): ?>
                 <li class="<?php if ($menu_active == 1) {
                     echo active;
                 } ?>">
                     <a href="/virtual/">
                         <i class="pe-7s-monitor"></i>
-                        <p>Управление</p>
+                        <p>Виртуальная среда</p>
                     </a>
                 </li>
+                <?php endif; ?>
                 <li class="<?php if ($menu_active == 2) {
                     echo active;
                 } ?>">
@@ -54,7 +56,7 @@
                     } ?>">
                         <a href="/virtual/administration/">
                             <i class="pe-7s-plugin"></i>
-                            <p>Виртуальные среды</p>
+                            <p>Шаблоны ВС</p>
                         </a>
                     </li>
                     <li class="<?php if ($menu_active == 4) {
@@ -65,7 +67,20 @@
                             <p>Шаблоны ВМ</p>
                         </a>
                     </li>
+                    <li class="<?php if ($menu_active == 10) {
+                        echo active;
+                    } ?>">
+                        <a href="/virtual/backup/">
+                            <i class="pe-7s-timer"></i>
+                            <p>Восстановление</p>
+                        </a>
+                    </li>
                 <?php endif; ?>
+
+
+
+
+
                 <!--<li class="<?php if ($menu_active == 5) {
                     echo active;
                 } ?>">
@@ -80,7 +95,7 @@
                 } ?>">
                     <a href="/virtual/about/">
                         <i class="pe-7s-notebook"></i>
-                        <p>О приложении</p>
+                        <p>О модуле</p>
                     </a>
                 </li>
             </ul>
@@ -88,7 +103,7 @@
     </div>
 
     <div class="main-panel">
-        <nav class="navbar navbar-default navbar-fixed">
+        <nav class="navbar navbar-default navbar-fixed" >
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -117,7 +132,7 @@
                                 <?= $USER->lastname ?>
                             </a>
                         </li>
-                        <li><a><i style="font-size: 40px; line-height: 20px;" class="pe-7s-user-female"></i></a></li>
+                        <li><a style="display:inline-block; padding-bottom: 0px;"><i style="font-size: 40px; line-height: 0px; padding-top: 10px; " class="pe-7s-user-female"></i></a></li>
                     </ul>
                 </div>
             </div>
